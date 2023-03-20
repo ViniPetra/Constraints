@@ -1,5 +1,4 @@
 from satisfacao_restricoes import Restricao, SatisfacaoRestricoes
-import tabulate
 
 def create_matrix(schedule):
     departments = {}
