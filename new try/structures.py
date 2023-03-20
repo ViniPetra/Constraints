@@ -69,3 +69,19 @@ dominios = {
 '''
 #variaveis = ['Recepção-T1', 'Recepção-T2', 'Recepção-T3', 'Limpeza de Quartos-T1', 'Limpeza de Quartos-T2', 'Limpeza de Quartos-T3', 'Cozinha-T1', 'Cozinha-T2', 'Cozinha-T3', 'Serviço de Quarto-T1', 'Serviço de Quarto-T2', 'Serviço de Quarto-T3', 'Bar-T1', 'Bar-T2', 'Bar-T3', 'Lavanderia-T1', 'Lavanderia-T2', 'Lavanderia-T3', 'Manutenção-T1', 'Manutenção-T2', 'Manutenção-T3']
     
+
+'''
+dominios =  {
+    'Recepção': ['João', 'Ana', 'Paula', 'Fernanda', 'Juliana', 'Beatriz', 'Marcelo', 'Renata'],
+    'Limpeza de Quartos': ['João', 'Carlos', 'Paula', 'Pedro', 'Luiza', 'Juliana', 'Beatriz', 'Lucas', 'Marcelo', 'Danilo'],
+    'Cozinha': ['Maria', 'Bruno', 'Thiago', 'Bruna', 'Vanessa'],
+    'Serviço de Quarto': ['Maria', 'Bruno', 'Paula', 'Fernanda', 'Rafael', 'Beatriz', 'Renata'],
+    'Bar': ['Maria', 'Paula', 'Thiago', 'Rafael', 'Lucas', 'Vanessa'],
+    'Lavanderia': ['Ana', 'Luiza', 'Fernanda', 'Marcelo'],
+    'Manutenção': ['Carlos', 'Pedro', 'Danilo']
+}
+'''
+
+#variaveis = ['Recepção-T1', 'Recepção-T2', 'Recepção-T3', 'Limpeza de Quartos-T1', 'Limpeza de Quartos-T2', 'Limpeza de Quartos-T3', 'Cozinha-T1', 'Cozinha-T2', 'Cozinha-T3', 'Serviço de Quarto-T1', 'Serviço de Quarto-T2', 'Serviço de Quarto-T3', 'Bar-T1', 'Bar-T2', 'Bar-T3', 'Lavanderia-T1', 'Lavanderia-T2', 'Lavanderia-T3', 'Manutenção-T1', 'Manutenção-T2', 'Manutenção-T3']
+#variaveis = ["Recepção", "Cozinha", "Serviço de Quarto", "Limpeza de Quartos", "Lavanderia", "Manutenção", "Bar"]
+    
