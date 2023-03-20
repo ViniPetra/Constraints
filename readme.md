@@ -48,11 +48,11 @@ Para resolução desse problema, é necessário tomar algumas decisões para mod
 
 Para fazer a junção mencionada no item 2, as variáveis foram definidas no formato "turnoHabilidade" 
 
-`variaveis = ["João", "Maria", "Ana", "Carlos", "Bruno", "Paula", "Pedro", "Luiza", "Thiago", "Fernanda", "Rafael", "Juliana", "Caio", "Beatriz", "Lucas", "Bruna", "Marcelo", "Vanessa", "Danilo", "Renata"]
+`variaveis = ["João", "Maria", "Ana", "Carlos", "Bruno", "Paula", "Pedro", "Luiza", "Thiago", "Fernanda", "Rafael", "Juliana", "Caio", "Beatriz", "Lucas", "Bruna", "Marcelo", "Vanessa", "Danilo", "Renata"]`
 
 Os domínios é um dicionário com os nomes dos funcionários e suas habilidades:
 
-`dominios = ["Recepção", "Cozinha", "Serviço de Quarto", "Limpeza de Quartos", "Lavanderia", "Manutenção", "Bar"]
+`dominios = ["Recepção", "Cozinha", "Serviço de Quarto", "Limpeza de Quartos", "Lavanderia", "Manutenção", "Bar"]`
 
 ## Conclusão
 
