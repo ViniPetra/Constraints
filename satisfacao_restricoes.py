@@ -13,14 +13,14 @@ class SatisfacaoRestricoes():
     for variavel in self.variaveis:
         self.restricoes[variavel] = []
         if variavel not in self.dominios:
-            raise LookupError("Cada variável precisa de um domínio")
+            raise LookupError("Cada variávei precisa de um domínio")
 
   def adicionar_restricao(self, restricao):
     for variavel in restricao.variaveis:
-        if variavel not in self.variaveis:
-            raise LookupError("Variável {" + str(variavel) + "} não definida previamente")
-        else:
-            self.restricoes[variavel].append(restricao)
+      if variavel not in self.variaveis:
+        raise LookupError("Variável não definida previamente")
+      else:
+        self.restricoes[variavel].append(restricao)
 
   def esta_consistente(self, variavel, atribuicao):
     for restricoes in self.restricoes[variavel]:
