@@ -1,4 +1,5 @@
 from satisfacao_restricoes import Restricao, SatisfacaoRestricoes
+import pandas as pd
 
 def create_matrix(schedule):
     departments = {}
@@ -90,4 +91,10 @@ if __name__ == "__main__":
     if resposta is None:
         print("Nenhuma resposta encontrada")
     else:
-        print(resposta) 
+        res = create_matrix(resposta)
+        rows=['Recepção', 'Limpeza de Quartos', 'Cozinha', 'Serviço de Quarto',  'Bar', 'Lavanderia', 'Manutenção']
+        df = pd.DataFrame(res, columns=["T1", "T2", "T3"])
+        df.insert(0, "Funções", rows)
+        print("")
+        print("---RESPOSTA---")
+        print(df)
