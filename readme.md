@@ -43,48 +43,27 @@ O objetivo é encontrar uma alocação de funcionários que atenda a todas as re
 Este é um problema de Satisfação de restrições
 Para resolução desse problema, é necessário tomar algumas decisões para modelar o problema. 
 
-1. O hotel funciona 24 horas por dia e cada turno dura 8 horas. Isso nos permite olhar o problema de forma linear. Uma vez que o hotel não fecha, não importa qual turno o funcionário vai assumir no dia, apenas se satisfaz à restrição de "até dois turnos seguidos"
-2. Como nós temos 3 informações (Funcionário, Habilidade e Turno), temos que abstrair o problema de forma que duas dessas informações representem uma coisa só. Para este problema, foi assumido que Habilidade e Turno serão mesclados pois assim será possível definir **Habilidade/Turno** como **Variável** e **Funcionário** como **Domínio**. Para esclarecer melhor, uma (habilidade em um turno) assumirá o valor de um funcionário. 
+O hotel funciona 24 horas por dia e cada turno dura 8 horas. Uma vez que o hotel não fecha, não importa qual turno no dia o funcionário vai assumir, apenas se satisfaz à restrição o mesmo não está em dois turnos seguidos
 
-Para fazer a junção mencionada no item 2, as variáveis foram definidas no formato "turnoHabilidade" 
+Como temos 3 informações (Funcionário, Habilidade e Turno), temos que abstrair o problema de forma que duas dessas informações representem uma coisa só. Para este problema, foi assumido que Habilidade e Turno serão mesclados pois assim será possível definir **Habilidade/Turno** como **Variável** e **Funcionário** como **Domínio**. Para esclarecer melhor, uma (habilidade em um turno) assumirá o valor de um funcionário, contanto que o mesmo tenha a habilidade. 
 
-`variaveis = ['Recepção-T1', 'Recepção-T2', 'Recepção-T3', 'Limpeza de Quartos-T1', 'Limpeza de Quartos-T2', 'Limpeza de Quartos-T3', 'Cozinha-T1', 'Cozinha-T2', 'Cozinha-T3', 'Serviço de Quarto-T1', 'Serviço de Quarto-T2', 'Serviço de Quarto-T3', 'Bar-T1', 'Bar-T2', 'Bar-T3', 'Lavanderia-T1', 'Lavanderia-T2', 'Lavanderia-T3', 'Manutenção-T1', 'Manutenção-T2', 'Manutenção-T3']`
+As variáveis deste problema foram definidas como o nome da função + T(um número de turno).
 
-Os domínios é um dicionário com o nome das habilidades e os funcionários que a possuem:
+Para os domínios, foi criado um dicionário com o nome de cada habilidade/Turno e os funcionários que as possuem.
 
-`dominios = {
-        'Recepção-T1': ['Fernanda', 'Ana', 'Renata', 'Paula', 'João', 'Beatriz', 'Juliana', 'Marcelo'],'
-        'Limpeza de Quartos-T1': ['Carlos', 'Beatriz', 'Pedro', 'Luiza', 'Danilo', 'Paula', 'Lucas', 'João', 'Juliana', 'Marcelo'],'
-        'Cozinha-T1': ['Maria', 'Bruno', 'Thiago', 'Bruna', 'Vanessa'],'
-        'Serviço de Quarto-T1': ['Maria', 'Bruno', 'Paula', 'Fernanda', 'Rafael', 'Beatriz', 'Renata'],'
-        'Bar-T1': ['Maria', 'Paula', 'Thiago', 'Rafael', 'Lucas', 'Vanessa'],'
-        'Lavanderia-T1': ['Ana', 'Luiza', 'Fernanda', 'Marcelo'],'
-        'Manutenção-T1': ['Carlos', 'Pedro', 'Danilo'],'
-        'Recepção-T2': ['Fernanda', 'Ana', 'Renata', 'Paula', 'João', 'Beatriz', 'Juliana', 'Marcelo'],'
-        'Limpeza de Quartos-T2': ['Carlos', 'Beatriz', 'Pedro', 'Luiza', 'Danilo', 'Paula', 'Lucas', 'João', 'Juliana', 'Marcelo'],'
-        'Cozinha-T2': ['Maria', 'Bruno', 'Thiago', 'Bruna', 'Vanessa'],'
-        'Serviço de Quarto-T2': ['Maria', 'Bruno', 'Paula', 'Fernanda', 'Rafael', 'Beatriz', 'Renata'],'
-        'Bar-T2': ['Maria', 'Paula', 'Thiago', 'Rafael', 'Lucas', 'Vanessa'],'
-        'Lavanderia-T2': ['Ana', 'Luiza', 'Fernanda', 'Marcelo'],'
-        'Manutenção-T2': ['Carlos', 'Pedro', 'Danilo'],'
-        'Recepção-T3': ['Fernanda', 'Ana', 'Renata', 'Paula', 'João', 'Beatriz', 'Juliana', 'Marcelo'],'
-        'Limpeza de Quartos-T3': ['Carlos', 'Beatriz', 'Pedro', 'Luiza', 'Danilo', 'Paula', 'Lucas', 'João', 'Juliana', 'Marcelo'],'
-        'Cozinha-T3': ['Maria', 'Bruno', 'Thiago', 'Bruna', 'Vanessa'],'
-        'Serviço de Quarto-T3': ['Maria', 'Bruno', 'Paula', 'Fernanda', 'Rafael', 'Beatriz', 'Renata'],'
-        'Bar-T3': ['Maria', 'Paula', 'Thiago', 'Rafael', 'Lucas', 'Vanessa'],'
-        'Lavanderia-T3': ['Ana', 'Luiza', 'Fernanda', 'Marcelo'],'
-        'Manutenção-T3': ['Carlos', 'Pedro', 'Danilo']'
-    }`
+Foram implementadas duas restrições. Uma valida de o funcionário está alocado em até dois turnos consecutivos e a outra valida se o mesmo funcionário não está alocado em mais de uma função no mesmo turno.
 
 ## Conclusão
 
 Este código chegou na resposta:
 
-              Funções        T1        T2       T3
-0            Recepção  Fernanda  Fernanda      Ana
-1  Limpeza de Quartos    Carlos    Carlos  Beatriz
-2             Cozinha     Maria     Maria    Bruno
-3   Serviço de Quarto     Bruno     Paula    Maria
-4                 Bar     Paula    Thiago    Paula
-5          Lavanderia       Ana       Ana    Luiza
-6          Manutenção     Pedro     Pedro   Carlos
+|            Funções      |   T1     |   T2     |  T3     |
+|------------------------|:--------|:--------|:--------|
+| Recepção               | Fernanda | Fernanda | Ana     |
+| Limpeza de Quartos     | Carlos   | Carlos   | Beatriz |
+| Cozinha                | Maria    | Maria    | Bruno   |
+| Serviço de Quarto      | Bruno    | Paula    | Maria   |
+| Bar                    | Paula    | Thiago   | Paula   |
+| Lavanderia             | Ana      | Ana      | Luiza   |
+| Manutenção             | Pedro    | Pedro    | Carlos  |
+
